@@ -7,130 +7,150 @@ package com.qp.entity;
  *
  */
 public class UserInfo {
-	private Integer UserId;
-	private String UserName;
-	private String UserPwd;
-	private String Card;
-	private String Sex;
-	private String Age;
-	private String UserTel;
-	private String Email;
+	private Integer stuId;
+	private String stuName;
+	private String stuPwd;
+	private String card;
+	private String sex;
+	private String age;
+	private String userTel;
+	private String email;
 
 	public UserInfo() {
 	}
 
 	public UserInfo(String name, String pwd, String cardId) {
 		super();
-		UserName = name;
-		UserPwd = pwd;
-		Card = cardId;
+		this.stuName = name;
+		this.stuPwd = pwd;
+		this.card = cardId;
 	}
 
-	public UserInfo(Integer userId, String userName, String userPwd) {
+	public UserInfo(Integer stuId, String stuName, String stuPwd) {
 		super();
-		UserId = userId;
-		UserName = userName;
-		UserPwd = userPwd;
+		this.stuId = stuId;
+		this.stuName = stuName;
+		this.stuPwd = stuPwd;
 	}
 
-	public UserInfo(String userName, String userPwd) {
+	public UserInfo(String stuName, String stuPwd) {
 		super();
-		UserName = userName;
-		UserPwd = userPwd;
+		this.stuName = stuName;
+		this.stuPwd = stuPwd;
 	}
 
-	public UserInfo(String userName, String userPwd, String email, String card) {
+	public UserInfo(String stuName, String stuPwd, String email, String card) {
 		super();
-		UserName = userName;
-		UserPwd = userPwd;
-		Email = email;
-		Card = card;
+		this.stuName = stuName;
+		this.stuPwd = stuPwd;
+		this.email = email;
+		this.card = card;
 	}
 
-	public UserInfo(String userName, String sex, String card, String age, String userTel, String email) {
+	public UserInfo(String stuName, String card, String sex, String age, String userTel, String email) {
 		super();
-		UserName = userName;
-		Sex = sex;
-		Age = age;
-		Card = card;
-		UserTel = userTel;
-		Email = email;
+		this.stuName = stuName;
+		this.sex = sex;
+		this.age = age;
+		this.card = card;
+		this.userTel = userTel;
+		this.email = email;
 	}
 
-	public UserInfo(Integer userId, String userName, String userPwd, String sex, String age, String userTel,
+	public UserInfo(Integer stuId, String stuName, String card, String sex, String age, String userTel,
 			String email) {
 		super();
-		UserId = userId;
-		UserName = userName;
-		UserPwd = userPwd;
-		Sex = sex;
-		Age = age;
-		UserTel = userTel;
-		Email = email;
+		this.stuId = stuId;
+		this.stuName = stuName;
+		this.card = card;
+		this.sex = sex;
+		this.age = age;
+		this.userTel = userTel;
+		this.email = email;
+	}
+	
+	public UserInfo(Integer stuId, String stuName, String card, String pwd, String sex, String age, String userTel,
+			String email) {
+		super();
+		this.stuId = stuId;
+		this.stuName = stuName;
+		this.stuPwd = pwd;
+		this.card = card;
+		this.sex = sex;
+		this.age = age;
+		this.userTel = userTel;
+		this.email = email;
+	}
+	
+	public Integer getStuId() {
+		return stuId;
 	}
 
-	public Integer getUserId() {
-		return UserId;
+	public void setStuId(Integer stuId) {
+		this.stuId = stuId;
 	}
 
-	public void setUserId(Integer Userid) {
-		UserId = Userid;
+	public String getStuName() {
+		return stuName;
 	}
 
-	public String getUserName() {
-		return UserName;
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
 	}
 
-	public void setUserName(String userName) {
-		UserName = userName;
+	public String getStuPwd() {
+		return stuPwd;
 	}
 
-	public String getUserPwd() {
-		return UserPwd;
+	public void setStuPwd(String stuPwd) {
+		this.stuPwd = stuPwd;
 	}
 
-	public void setUserPwd(String userPwd) {
-		UserPwd = userPwd;
+	public String getCard() {
+		return card;
+	}
+
+	public void setCard(String card) {
+		this.card = card;
 	}
 
 	public String getSex() {
-		return Sex;
+		return sex;
 	}
 
 	public void setSex(String sex) {
-		Sex = sex;
+		this.sex = sex;
 	}
 
 	public String getAge() {
-		return Age;
+		return age;
 	}
 
 	public void setAge(String age) {
-		Age = age;
+		this.age = age;
 	}
 
 	public String getUserTel() {
-		return UserTel;
+		return userTel;
 	}
 
 	public void setUserTel(String userTel) {
-		UserTel = userTel;
+		this.userTel = userTel;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
-	public String getCardId() {
-		return Card;
+	@Override
+	public String toString() {
+		return "UserInfo [stuId=" + stuId + ", stuName=" + stuName + ", stuPwd=" + stuPwd + ", card="
+				+ card + ", sex=" + sex + ", age=" + age + ", userTel=" + userTel
+				+ ", email=" + email + "]";
 	}
-
-	public void setCardId(String card) {
-		Card = card;
-	}
-
+	
 }

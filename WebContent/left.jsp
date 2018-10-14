@@ -13,8 +13,8 @@
 			<div class="menu_head">基础信息</div>
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
-				<a href="BasicInfoServlet?cardId=${cardId }" target="right">基础信息列表</a>
-				<a href="updateInfo.jsp" target="right">编辑信息</a> 
+				<a href="BasicInfoServlet?opt=find&cardId=${cardId }" target="right">基础信息列表</a>
+				<a href="BasicInfoServlet?opt=finds&cardId=${cardId }" target="right">编辑信息</a> 
 			</div>
 		</div>
 		

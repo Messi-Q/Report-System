@@ -1,6 +1,7 @@
 package com.qp.servlet;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import com.qp.service.impl.UserServiceImpl;
 @WebServlet("/BasicInfoServlet")
 public class BasicInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	UserService userService = new UserServiceImpl();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -28,33 +30,68 @@ public class BasicInfoServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		String opt = request.getParameter("opt");
+		if (opt.equals("updateInfo")) {
+			this.updateInfo(request, response);
+		} else if (opt.equals("find")) {
+			this.find(request, response);
+		} else if (opt.equals("finds")) {
+			this.finds(request, response);
+		}
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	private void updateInfo(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// 编码
+		request.setCharacterEncoding("UTF-8");
+		// 获取参数的值
+		String stuName = request.getParameter("StuName");
+		String cardId = request.getParameter("CardId");
+		String sex = request.getParameter("Sex");
+		String age = request.getParameter("Age");
+		String tel = request.getParameter("UserTel");
+		String email = request.getParameter("Email");
+
+		UserInfo userInfo = new UserInfo(stuName, cardId, sex, age, tel, email);
+
+		int i = this.userService.userUpdate(userInfo);
+		if (i > 0) {
+			this.find(request, response);
+		}
+
+	}
+
+	protected void find(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 编码
+		request.setCharacterEncoding("UTF-8");
+		// 获取参数的值
+		String cardId = request.getParameter("cardId");
+
+		UserService userservice = new UserServiceImpl();
+		List<UserInfo> userInfo = userservice.findId(cardId);
+
+		request.setAttribute("userInfo", userInfo);
+		request.getRequestDispatcher("userInfo.jsp").forward(request, response);
+	}
+
+	protected void finds(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 编码
 		request.setCharacterEncoding("UTF-8");
 		// 获取参数的值
 		String cardId = request.getParameter("cardId");
-		System.out.println(cardId);
-		
+
 		UserService userservice = new UserServiceImpl();
 		List<UserInfo> userInfo = userservice.findId(cardId);
-		
-		request.setAttribute("userInfo",userInfo);
-		request.getRequestDispatcher("userInfo.jsp").forward(request, response);
+
+		request.setAttribute("userInfo", userInfo);
+		request.getRequestDispatcher("updateInfo.jsp").forward(request, response);
 	}
 
 }

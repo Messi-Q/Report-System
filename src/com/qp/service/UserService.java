@@ -10,7 +10,7 @@ public interface UserService {
 	public UserInfo userLogin(UserInfo userinfo);
 	public boolean userExist(String username);
 	/**
-	 * 根据编号查询菜品详情
+	 * 根据学号详情
 	 * @param typeID
 	 * @return
 	 */

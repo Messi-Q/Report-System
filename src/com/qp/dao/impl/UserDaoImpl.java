@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.qp.dao.UserDao;
-import com.qp.entity.AdminInfo;
 import com.qp.entity.UserInfo;
 import com.qp.util.DBUtil;
 
@@ -17,8 +16,8 @@ public class UserDaoImpl implements UserDao {
 	public int userRegister(UserInfo userinfo) {
 		Connection conn = DBUtil.getConn();
 		String sql = "insert into stuinfo(StuName,StuPwd,Email,CardId)values(?,?,?,?)";
-		int i = DBUtil.executeUpdate(conn, sql, userinfo.getUserName(), userinfo.getUserPwd(), userinfo.getEmail(),
-				userinfo.getCardId());
+		int i = DBUtil.executeUpdate(conn, sql, userinfo.getStuName(), userinfo.getStuPwd(), userinfo.getEmail(),
+				userinfo.getCard());
 		DBUtil.closeConn(conn);
 		return i;
 	}
@@ -29,15 +28,15 @@ public class UserDaoImpl implements UserDao {
 		Connection conn = DBUtil.getConn();
 		try {
 			String sql = "select * from StuInfo where StuName=? and StuPwd=? and CardId=?";
-			ResultSet rs = DBUtil.executeQuery(conn, sql, userinfo.getUserName(), userinfo.getUserPwd(),
-					userinfo.getCardId());
+			ResultSet rs = DBUtil.executeQuery(conn, sql, userinfo.getStuName(), userinfo.getStuPwd(),
+					userinfo.getCard());
 			// 判断
 			if (rs.next()) {
 				u = new UserInfo();
-				u.setUserId(rs.getInt("StuId"));
-				u.setUserName(rs.getString("StuName"));
-				u.setUserPwd(rs.getString("StuPwd"));
-				u.setCardId(rs.getString("CardId"));
+				u.setStuId(rs.getInt("StuId"));
+				u.setStuName(rs.getString("StuName"));
+				u.setStuPwd(rs.getString("StuPwd"));
+				u.setCard(rs.getString("CardId"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -70,9 +69,12 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int userUpdate(UserInfo userinfo) {
 		Connection conn = DBUtil.getConn();
-		String sql = "update UserInfo set UserName=?,UserPwd=? where UserId=?";
-		int i = DBUtil.executeUpdate(conn, sql, userinfo.getUserName(), userinfo.getUserPwd(), userinfo.getUserId());
+		String sql = "update StuInfo set StuName=?,Email=?,CardId=?,Sex=?,Age=?,Tel=? where CardId=?";
+		System.out.println(userinfo.getSex());
+		int i = DBUtil.executeUpdate(conn, sql, userinfo.getStuName(), userinfo.getEmail(), userinfo.getCard(),
+				userinfo.getSex(), userinfo.getAge(), userinfo.getUserTel(), userinfo.getCard());
 		DBUtil.closeConn(conn);
+		System.out.println(i);
 		return i;
 	}
 
@@ -87,8 +89,9 @@ public class UserDaoImpl implements UserDao {
 		ResultSet rs = DBUtil.executeQuery(conn, sql, cardId);
 		try {
 			while (rs.next()) {
-				UserInfo a = new UserInfo(rs.getString("StuName"), rs.getString("Email"), rs.getString("CardId"),
-						rs.getString("Sex"), rs.getString("Age"), rs.getString("Tel"));
+				UserInfo a = new UserInfo(rs.getInt("StuId"), rs.getString("StuName"), rs.getString("CardId"),
+						rs.getString("StuPwd"), rs.getString("Sex"), rs.getString("Age"), rs.getString("Tel"),
+						rs.getString("Email"));
 				list.add(a);
 			}
 		} catch (SQLException e) {

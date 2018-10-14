@@ -40,7 +40,7 @@ public class UserRegisterServlet extends HttpServlet {
 		// 调用业务层
 		UserService userservice = new UserServiceImpl();
 
-		boolean flg = userservice.userExist(userinfo.getUserName());
+		boolean flg = userservice.userExist(userinfo.getStuName());
 
 		if (flg) {
 			request.setAttribute("error", "Accunt Existed!");

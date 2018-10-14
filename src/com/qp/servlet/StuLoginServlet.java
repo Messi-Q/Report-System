@@ -52,8 +52,8 @@ public class StuLoginServlet extends HttpServlet {
 		if (i != null) {
 			request.setAttribute("name", name);
 			request.setAttribute("cardId", cardId);
-			request.getSession().setAttribute("userId", i.getUserId());
-			request.getSession().setAttribute("cardId", i.getCardId());
+			request.getSession().setAttribute("userId", i.getStuId());
+			request.getSession().setAttribute("cardId", i.getCard());
 			request.getSession().setAttribute("name", name);
 			request.getRequestDispatcher("frame.jsp").forward(request, response);
 		} else {

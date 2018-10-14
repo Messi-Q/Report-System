@@ -10,7 +10,7 @@ public interface UserDao {
 	public boolean userExist(String username);
 	public UserInfo userLogin(UserInfo userinfo);	
 	/**
-	 * 根据编号查询菜品详情
+	 * 根据学号详情
 	 * @param typeID
 	 * @return
 	 */
