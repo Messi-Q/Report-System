@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.middle{
+	height: 532px;
+	width: 100%;
+	background-image: url(../img/l1b3.gif);
+	position: absolute;
+	top: 45px;
+	left: 0px;
+}
