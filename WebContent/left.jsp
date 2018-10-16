@@ -22,8 +22,9 @@
 			<div class="menu_head">周报管理</div>
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
-				<a href="addReport.jsp" target="right">周报上传</a> 
-				<a href="FoodTypeServlet?opt=queryAll" target="right">周报导出</a>
+				<a href="ReportServlet?opt=upload&cardId=${cardId }" target="right">周报上传</a> 
+				<a href="ReportServlet?opt=findAll&cardId=${cardId }" target="right">周报信息列表</a>
+				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
 			</div>
 		</div>
 		<div class="menu">
