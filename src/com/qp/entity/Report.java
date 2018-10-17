@@ -12,6 +12,16 @@ public class Report {
 	public Report() {
 	}
 
+	public Report(int reportId, String reportTitle, String lastReportCont, String thisReportCont,
+			String nextReportCont) {
+		super();
+		this.reportId = reportId;
+		this.reportTitle = reportTitle;
+		this.lastReportCont = lastReportCont;
+		this.thisReportCont = thisReportCont;
+		this.nextReportCont = nextReportCont;
+	}
+	
 	public Report(String cardId, String reportTitle, String lastReportCont, String thisReportCont,
 			String nextReportCont) {
 		super();

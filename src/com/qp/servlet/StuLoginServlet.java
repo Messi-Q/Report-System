@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.qp.entity.TeacherInfo;
 import com.qp.entity.UserInfo;
 import com.qp.service.UserService;
 import com.qp.service.impl.*;
@@ -42,24 +43,47 @@ public class StuLoginServlet extends HttpServlet {
 		//编码
 		request.setCharacterEncoding("UTF-8");
 		//获取参数的值
-		String name = request.getParameter("StuName");
-		String pwd = request.getParameter("StuPwd");
+		String loginUser = request.getParameter("Login");
+		String name = request.getParameter("Name");
+		String pwd = request.getParameter("Pwd");
 		String cardId = request.getParameter("CardId").toString();
 		
-		UserService userservice = new UserServiceImpl();
-		UserInfo i = userservice.userLogin(new UserInfo(name, pwd, cardId));
-		
-		if (i != null) {
-			request.setAttribute("name", name);
-			request.setAttribute("cardId", cardId);
-			request.getSession().setAttribute("userId", i.getStuId());
-			request.getSession().setAttribute("cardId", i.getCard());
-			request.getSession().setAttribute("name", name);
-			request.getRequestDispatcher("frame.jsp").forward(request, response);
-		} else {
-			request.setAttribute("error", "学号、用户名或密码错误");
-			request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
+		if (loginUser.equals("教师登录")) {
+			System.out.println("教师登录");
+			UserService userservice = new UserServiceImpl();
+			TeacherInfo i = userservice.teacherLogin(new TeacherInfo(name, pwd, cardId));
+			
+			if (i != null) {
+				request.setAttribute("name", name);
+				request.setAttribute("cardId", cardId);
+				request.getSession().setAttribute("userId", i.getTeId());
+				request.getSession().setAttribute("cardId", i.getCard());
+				request.getSession().setAttribute("name", name);
+				request.getRequestDispatcher("frame.jsp").forward(request, response);
+			} else {
+				request.setAttribute("error", "卡号、用户名或密码错误");
+				request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
+			}
+			
+		} else if (loginUser.equals("学生登录")){
+			System.out.println("学生登录");
+			UserService userservice = new UserServiceImpl();
+			UserInfo i = userservice.userLogin(new UserInfo(name, pwd, cardId));
+			
+			if (i != null) {
+				request.setAttribute("name", name);
+				request.setAttribute("cardId", cardId);
+				request.getSession().setAttribute("userId", i.getStuId());
+				request.getSession().setAttribute("cardId", i.getCard());
+				request.getSession().setAttribute("name", name);
+				request.getRequestDispatcher("frame.jsp").forward(request, response);
+			} else {
+				request.setAttribute("error", "学号、用户名或密码错误");
+				request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
+			}
+			
 		}
+		
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.qp.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.qp.entity.Report;
 import com.qp.service.ReportService;
 import com.qp.service.impl.ReportServiceImpl;
+import com.qp.util.DBUtil;
 
 /**
  * Servlet implementation class ReportServlet
@@ -42,7 +44,20 @@ public class ReportServlet extends HttpServlet {
 			this.doSelectOne(request, response);
 		} else if (opt.equals("upload")) {
 			this.upload(request, response);
+		} else if (opt.equals("toUpdate")) {
+			this.toUpdate(request, response);
 		}
+	}
+
+	private void toUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String reportId = request.getParameter("reportId");
+		ReportService reportService = new ReportServiceImpl();
+		ArrayList<Report> reportList = reportService.findOneRow(Integer.parseInt(reportId));
+		request.setAttribute("reportList", reportList);
+		request.getRequestDispatcher("updateReport.jsp").forward(request, response);
+
 	}
 
 	// 跳转到addReport.jsp页面
@@ -55,23 +70,50 @@ public class ReportServlet extends HttpServlet {
 
 	}
 
-	private void doSelectOne(HttpServletRequest request, HttpServletResponse response) {
+	private void doSelectOne(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		String reportId = request.getParameter("reportId");
+		ReportService reportService = new ReportServiceImpl();
+		ArrayList<Report> reportList = reportService.findSelectOne(Integer.parseInt(reportId));
+		request.setAttribute("reportList", reportList);
+		request.getRequestDispatcher("report.jsp").forward(request, response);
 	}
 
-	private void doUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private void doUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		String cardId = request.getParameter("cardId");
+		String reportId = request.getParameter("reportId");
+		String reportTitle = request.getParameter("reportTitle");
+		String lastReportCont = request.getParameter("lastReportCont");
+		String thisReportCont = request.getParameter("thisReportCont");
+		String nextReportCont = request.getParameter("nextReportCont");
+		
+		Report report = new Report(Integer.parseInt(reportId), reportTitle, lastReportCont, thisReportCont, nextReportCont);
+		
+		ReportService reportService = new ReportServiceImpl();
+		int i = reportService.updateReport(report);
+		if (i > 0) {
+			request.setAttribute("cardId", cardId);
+			this.findAll(request, response);
+		}
 	}
 
-	private void delete(HttpServletRequest request, HttpServletResponse response) {
+	private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		String cardId = request.getParameter("cardId");
+		String reportId = request.getParameter("reportId");
+		ReportService reportService = new ReportServiceImpl();
+		int i = reportService.deleteReport(Integer.parseInt(reportId));
+		if (i > 0) {
+			request.setAttribute("cardId", cardId);
+			this.findAll(request, response);
+		}
 	}
 
 	// 查询
-	private void findAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void findAll(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String cardId = request.getParameter("cardId");
 		ReportService reportService = new ReportServiceImpl();

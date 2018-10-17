@@ -83,18 +83,13 @@
 }
 .center{
 	width: 25%;
-	height: 80px;
+	height: 100px;
 	float: left;
 	padding: 60px;
 }
-#title{
-	width: 160px;
-	height: 20px;
-	display: block;
+.login{
 	font-size: 15px;
 	font-family: "Î¢ÈíÑÅºÚ";
-	position: relative;
-	top: 90px;
 }
 #card{
 	width: 140px;

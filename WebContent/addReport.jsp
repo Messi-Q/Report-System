@@ -25,7 +25,7 @@
 					</tr>
 
 					<tr>
-						<td><span class="span1">本周完成情况：</span> <textarea
+						<td><span class="span1">本周进度：</span> <textarea
 								id="textarea1" name="thisReportCont"></textarea></td>
 					</tr>
 

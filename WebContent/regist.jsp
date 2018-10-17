@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,6 +21,8 @@
     <form class="form-signin" action="UserRegisterServlet" method="post" id="form">
       <div align="center">
       <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+      <input type="radio" value="学生注册" checked="checked" name="Regist" />Student Regist
+      <input type="radio" value="教师注册" name="Regist" />Teacher Regist
       </div>
       <label for="inputUsername" class="control-label">User name:</label>
       <input type="text" id="UserName" name ="UserName" class="form-control" placeholder="Username" required autofocus>

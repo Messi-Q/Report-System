@@ -20,4 +20,28 @@ public class ReportServiceImpl implements ReportService{
 		// TODO Auto-generated method stub
 		return reportDao.findAll(cardId);
 	}
+
+	@Override
+	public int deleteReport(int reportId) {
+		// TODO Auto-generated method stub
+		return reportDao.deleteReport(reportId);
+	}
+
+	@Override
+	public ArrayList<Report> findOneRow(int reportId) {
+		// TODO Auto-generated method stub
+		return reportDao.findOneRow(reportId);
+	}
+
+	@Override
+	public int updateReport(Report report) {
+		// TODO Auto-generated method stub
+		return reportDao.updateReport(report);
+	}
+
+	@Override
+	public ArrayList<Report> findSelectOne(int reportId) {
+		// TODO Auto-generated method stub
+		return reportDao.findSelectOne(reportId);
+	}
 }

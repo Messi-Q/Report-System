@@ -36,15 +36,15 @@
 						<td>${reportList.cardId }</td>
 						<td>${reportList.reportTitle}</td>
 						<td>${reportList.reportTime}</td>
-						<td>
-						  <a href="ReportServlet?opt=doSelectOne&reportId=${reportList.reportId }">查看</a>
+						<td><a
+							href="ReportServlet?opt=doSelectOne&reportId=${reportList.reportId }">查看</a>
 						</td>
-						<td>
-						  <a href="ReportServlet?opt=doUpdate&reportId=${reportList.reportId }">修改</a>
+						<td><a
+							href="ReportServlet?opt=toUpdate&reportId=${reportList.reportId }">修改</a>
 						</td>
-						<td>
-						  <a href="ReportServlet?opt=delete&reportId=${reportList.reportId }" onClick="delcfm()">删除</a>
-						</td>
+						<td><a
+							href="ReportServlet?opt=delete&reportId=${reportList.reportId }&cardId=${reportList.cardId }"
+							onClick="delcfm()">删除</a></td>
 					</tr>
 				</c:forEach>
 				<tr>

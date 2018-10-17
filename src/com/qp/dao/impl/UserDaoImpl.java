@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.qp.dao.UserDao;
+import com.qp.entity.TeacherInfo;
 import com.qp.entity.UserInfo;
 import com.qp.util.DBUtil;
 
@@ -101,6 +102,63 @@ public class UserDaoImpl implements UserDao {
 			DBUtil.closeConn(conn);
 		}
 		return list;
+	}
+
+	@Override
+	public boolean teacherExist(String username) {
+		// TODO Auto-generated method stub
+		boolean flg = true;
+		Connection conn = DBUtil.getConn();
+		try {
+			String sql = "select TeName from teinfo where TeName=?";
+			ResultSet rs = DBUtil.executeQuery(conn, sql, username);
+			if (rs.next()) {
+				flg = true;
+			} else {
+				flg = false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConn(conn);
+		}
+		return flg;
+	}
+
+	@Override
+	public int teacherRegister(TeacherInfo teacherinfo) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConn();
+		String sql = "insert into teinfo(TeName,TePwd,Email,CardId)values(?,?,?,?)";
+		int i = DBUtil.executeUpdate(conn, sql, teacherinfo.getTeName(), teacherinfo.getTePwd(), teacherinfo.getEmail(),
+				teacherinfo.getCard());
+		DBUtil.closeConn(conn);
+		return i;
+	}
+
+	@Override
+	public TeacherInfo teacherLogin(TeacherInfo teacherInfo) {
+		// TODO Auto-generated method stub
+		TeacherInfo u = null;
+		Connection conn = DBUtil.getConn();
+		try {
+			String sql = "select * from TeInfo where TeName=? and TePwd=? and CardId=?";
+			ResultSet rs = DBUtil.executeQuery(conn, sql, teacherInfo.getTeName(), teacherInfo.getTePwd(),
+					teacherInfo.getCard());
+			// 判断
+			if (rs.next()) {
+				u = new TeacherInfo();
+				u.setTeId(rs.getInt("TeId"));
+				u.setTeName(rs.getString("TeName"));
+				u.setTePwd(rs.getString("TePwd"));
+				u.setCard(rs.getString("CardId"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConn(conn);
+		}
+		return u;
 	}
 
 }

@@ -27,14 +27,18 @@
 			</div>
 			<div class="center">
 				<form action="StuLoginServlet" method="post">
-				    <label id="card">学&nbsp;&nbsp;&nbsp;号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<div class="login">
+                    <input type="radio" value="学生登录" checked="checked" name="Login" />学生登录
+                    <input type="radio" value="教师登录" name="Login" />教师登录
+                    </div>
+				    <label id="card">学&nbsp;&nbsp;号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 					<input type="text" class="input" name="CardId" />
 					</label><br /> 
 					<label id="name">用户名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-					<input type="text" class="input" name="StuName" />
+					<input type="text" class="input" name="Name" />
 					</label><br /> 
-					<label id="password">密&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="password" class="input" name="StuPwd" />
+					<label id="password">密&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="password" class="input" name="Pwd" />
 					</label><br /> 
 					<button class="btn btn-outline-primary btn-lg" type="submit">登录</button> 
 					<button class="btn btn-outline-danger btn-lg" type="reset">取消</button>

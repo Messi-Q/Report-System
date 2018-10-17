@@ -25,22 +25,18 @@
 				<a href="ReportServlet?opt=upload&cardId=${cardId }" target="right">周报上传</a> 
 				<a href="ReportServlet?opt=findAll&cardId=${cardId }" target="right">周报信息列表</a>
 				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
+				<a href="sellList" target="right">按日期查询</a>
+				<a href="queryOrder" target="right">按标题查询</a> 
 			</div>
 		</div>
 		<div class="menu">
-			<div class="menu_head">销售订单管理</div>
+			<div class="menu_head">用户中心</div>
 			<div class="menu_body">
-				<img src="img/menu_topline.gif" /> <a href="sellList" target="right">销售订单信息列表</a>
-				<a href="queryOrder" target="right">销售订单查询</a> <a href="totalSell"
-					target="right">本日销售统计</a>
+				<img src="img/menu_topline.gif" /> 
+				<a href="userCenter.jsp?" target="right">找回密码</a>
 			</div>
 		</div>
-		<div class="menu">
-			<div class="menu_head">
-				<a href="userManage.jsp?adminName=<%=request.getParameter("adminName")%>&adminId=<%=request.getParameter("adminId")%>"
-					target="right">用户中心</a>
-			</div>
-		</div>
+
 	</div>
 	<div class="menu">
 		<div class="menu_head">

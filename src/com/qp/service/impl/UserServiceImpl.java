@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.qp.dao.UserDao;
 import com.qp.dao.impl.UserDaoImpl;
+import com.qp.entity.TeacherInfo;
 import com.qp.entity.UserInfo;
 import com.qp.service.UserService;
 
@@ -36,6 +37,24 @@ public class UserServiceImpl implements UserService {
 		UserDao user = new UserDaoImpl();
 		List<UserInfo> list=user.findId(cardId);
 		return list;
+	}
+
+	@Override
+	public boolean teacherExist(String username) {
+		// TODO Auto-generated method stub
+		return userdao.teacherExist(username);
+	}
+
+	@Override
+	public int teacherRegister(TeacherInfo teacherinfo) {
+		// TODO Auto-generated method stub
+		return userdao.teacherRegister(teacherinfo);
+	}
+
+	@Override
+	public TeacherInfo teacherLogin(TeacherInfo teacherInfo) {
+		// TODO Auto-generated method stub
+		return userdao.teacherLogin(teacherInfo);
 	}
 
 }
