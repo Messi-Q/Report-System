@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>学生登录</title>
+<title>导师登录</title>
 <link rel="stylesheet" href="css/left.css" />
 </head>
 <body>
@@ -13,22 +13,23 @@
 			<div class="menu_head">基础信息</div>
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
-				<a href="BasicInfoServlet?opt=find&cardId=${cardId }" target="right">基础信息列表</a>
+				<a href="BasicInfoServlet?opt=findTeacher&cardId=${cardId }" target="right">基础信息列表</a>
 				<a href="BasicInfoServlet?opt=finds&cardId=${cardId }" target="right">编辑信息</a> 
 			</div>
 		</div>
 		
 		<div class="menu">
-			<div class="menu_head">周报管理</div>
+			<div class="menu_head">学生周报管理</div>
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
-				<a href="ReportServlet?opt=upload&cardId=${cardId }" target="right">周报上传</a> 
-				<a href="ReportServlet?opt=findAll&cardId=${cardId }" target="right">周报信息列表</a>
+				<a href="addStudent.jsp" target="right">添加学生</a> 
+				<a href="ReportServlet?opt=findAll&cardId=${cardId }" target="right">设置截止日期</a>
 				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
 				<a href="sellList" target="right">按日期查询</a>
 				<a href="queryOrder" target="right">按标题查询</a> 
 			</div>
 		</div>
+		
 		<div class="menu">
 			<div class="menu_head">用户中心</div>
 			<div class="menu_body">

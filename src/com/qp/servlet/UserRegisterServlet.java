@@ -27,8 +27,6 @@ public class UserRegisterServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// System.out.println("reg");
-		// System.out.println(1111);
 		// 编码
 		request.setCharacterEncoding("UTF-8");
 		// 获取参数的值
@@ -37,8 +35,10 @@ public class UserRegisterServlet extends HttpServlet {
 		String email = request.getParameter("Email");
 		String card = request.getParameter("Card");
 		String regist = request.getParameter("Regist");
+		
+		System.out.println(regist);
 
-		if (regist.equals("学生注册")) {
+		if (regist.equals("Student Regist")) {
 			System.out.println("学生注册");
 			// 封装：将用户输入的值封装成一个实体类对象
 			UserInfo userinfo = new UserInfo(name, pwd, email, card);
@@ -56,7 +56,7 @@ public class UserRegisterServlet extends HttpServlet {
 					request.getRequestDispatcher("success.jsp").forward(request, response);
 				}
 			}
-		} else if (regist.equals("教师注册")) {
+		} else if (regist.equals("Teacher Regist")) {
 			System.out.println("教师注册");
 			TeacherInfo teacherinfo = new TeacherInfo(name, pwd, email, card);
 			// 调用业务层

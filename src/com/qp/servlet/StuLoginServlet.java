@@ -49,7 +49,6 @@ public class StuLoginServlet extends HttpServlet {
 		String cardId = request.getParameter("CardId").toString();
 		
 		if (loginUser.equals("教师登录")) {
-			System.out.println("教师登录");
 			UserService userservice = new UserServiceImpl();
 			TeacherInfo i = userservice.teacherLogin(new TeacherInfo(name, pwd, cardId));
 			
@@ -59,14 +58,13 @@ public class StuLoginServlet extends HttpServlet {
 				request.getSession().setAttribute("userId", i.getTeId());
 				request.getSession().setAttribute("cardId", i.getCard());
 				request.getSession().setAttribute("name", name);
-				request.getRequestDispatcher("frame.jsp").forward(request, response);
+				request.getRequestDispatcher("teacherFrame.jsp").forward(request, response);
 			} else {
 				request.setAttribute("error", "卡号、用户名或密码错误");
 				request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
 			}
 			
 		} else if (loginUser.equals("学生登录")){
-			System.out.println("学生登录");
 			UserService userservice = new UserServiceImpl();
 			UserInfo i = userservice.userLogin(new UserInfo(name, pwd, cardId));
 			
@@ -78,7 +76,7 @@ public class StuLoginServlet extends HttpServlet {
 				request.getSession().setAttribute("name", name);
 				request.getRequestDispatcher("frame.jsp").forward(request, response);
 			} else {
-				request.setAttribute("error", "学号、用户名或密码错误");
+				request.setAttribute("error", "卡号、用户名或密码错误");
 				request.getRequestDispatcher("stuLogin.jsp").forward(request, response);
 			}
 			

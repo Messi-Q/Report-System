@@ -57,4 +57,12 @@ public class UserServiceImpl implements UserService {
 		return userdao.teacherLogin(teacherInfo);
 	}
 
+	@Override
+	public List<TeacherInfo> findTeId(String cardId) {
+		// TODO Auto-generated method stub
+		UserDao user = new UserDaoImpl();
+		List<TeacherInfo> list=user.findTeId(cardId);
+		return list;
+	}
+
 }

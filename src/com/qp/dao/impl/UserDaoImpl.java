@@ -161,4 +161,29 @@ public class UserDaoImpl implements UserDao {
 		return u;
 	}
 
+	@Override
+	public List<TeacherInfo> findTeId(String cardId) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConn();
+		List<TeacherInfo> list = new ArrayList<TeacherInfo>();
+
+		String sql = "select * from TeInfo where CardId = ?";
+
+		ResultSet rs = DBUtil.executeQuery(conn, sql, cardId);
+		try {
+			while (rs.next()) {
+				TeacherInfo a = new TeacherInfo(rs.getInt("TeId"), rs.getString("TeName"), rs.getString("CardId"),
+						rs.getString("TePwd"), rs.getString("Sex"), rs.getString("Age"), rs.getString("Tel"),
+						rs.getString("Email"));
+				list.add(a);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConn(conn);
+		}
+		return list;
+	}
+
 }

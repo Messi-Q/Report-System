@@ -21,8 +21,8 @@
     <form class="form-signin" action="UserRegisterServlet" method="post" id="form">
       <div align="center">
       <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-      <input type="radio" value="学生注册" checked="checked" name="Regist" />Student Regist
-      <input type="radio" value="教师注册" name="Regist" />Teacher Regist
+      <input type="radio" value="Student Regist" checked="checked" name="Regist" />Student Regist
+      <input type="radio" value="Teacher Regist" name="Regist" />Teacher Regist
       </div>
       <label for="inputUsername" class="control-label">User name:</label>
       <input type="text" id="UserName" name ="UserName" class="form-control" placeholder="Username" required autofocus>

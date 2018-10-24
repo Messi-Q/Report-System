@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.qp.entity.TeacherInfo;
 import com.qp.entity.UserInfo;
 import com.qp.service.UserService;
 import com.qp.service.impl.UserServiceImpl;
@@ -41,7 +42,23 @@ public class BasicInfoServlet extends HttpServlet {
 			this.find(request, response);
 		} else if (opt.equals("finds")) {
 			this.finds(request, response);
+		} else if (opt.equals("findTeacher")) {
+			this.findTeacher(request, response);
 		}
+
+	}
+
+	private void findTeacher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 编码
+		request.setCharacterEncoding("UTF-8");
+		// 获取参数的值
+		String cardId = request.getParameter("cardId");
+
+		UserService userservice = new UserServiceImpl();
+		List<TeacherInfo> teacherInfo = userservice.findTeId(cardId);
+
+		request.setAttribute("teacherInfo", teacherInfo);
+		request.getRequestDispatcher("teacherInfo.jsp").forward(request, response);
 
 	}
 

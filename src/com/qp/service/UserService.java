@@ -19,4 +19,5 @@ public interface UserService {
 	 * @return
 	 */
 	public List<UserInfo> findId(String cardId);
+	public List<TeacherInfo> findTeId(String cardId);
 }
