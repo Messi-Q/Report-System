@@ -186,4 +186,17 @@ public class UserDaoImpl implements UserDao {
 		return list;
 	}
 
+	@Override
+	public int teacherUpdate(TeacherInfo teacherInfo) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConn();
+		String sql = "update TeInfo set TeName=?,Email=?,CardId=?,Sex=?,Age=?,Tel=? where CardId=?";
+		System.out.println(teacherInfo.getSex());
+		int i = DBUtil.executeUpdate(conn, sql, teacherInfo.getTeName(), teacherInfo.getEmail(), teacherInfo.getCard(),
+				teacherInfo.getSex(), teacherInfo.getAge(), teacherInfo.getTeTel(), teacherInfo.getCard());
+		DBUtil.closeConn(conn);
+		System.out.println(i);
+		return i;
+	}
+
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>学生登录</title>
+<title>用户登录</title>
 <script src="js/login.js"></script>
 <script src="js/jquery.min.js"></script>
  <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">

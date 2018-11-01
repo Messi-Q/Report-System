@@ -14,7 +14,7 @@
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
 				<a href="BasicInfoServlet?opt=findTeacher&cardId=${cardId }" target="right">基础信息列表</a>
-				<a href="BasicInfoServlet?opt=finds&cardId=${cardId }" target="right">编辑信息</a> 
+				<a href="BasicInfoServlet?opt=findsTeacher&cardId=${cardId }" target="right">编辑信息</a> 
 			</div>
 		</div>
 		
@@ -22,8 +22,8 @@
 			<div class="menu_head">学生周报管理</div>
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
-				<a href="addStudent.jsp" target="right">添加学生</a> 
-				<a href="ReportServlet?opt=findAll&cardId=${cardId }" target="right">设置截止日期</a>
+				<a href="addStudent.jsp" target="right">添加学生到实验室</a> 
+				<a href="setDeadline.jsp" target="right">设置截止日期</a>
 				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
 				<a href="sellList" target="right">按日期查询</a>
 				<a href="queryOrder" target="right">按标题查询</a> 

@@ -44,11 +44,51 @@ public class BasicInfoServlet extends HttpServlet {
 			this.finds(request, response);
 		} else if (opt.equals("findTeacher")) {
 			this.findTeacher(request, response);
+		} else if (opt.equals("findsTeacher")) {
+			this.findsTeacher(request, response);
+		} else if (opt.equals("updateTeInfo")) {
+			this.updateTeInfo(request, response);
 		}
 
 	}
 
-	private void findTeacher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void updateTeInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// 编码
+		request.setCharacterEncoding("UTF-8");
+		// 获取参数的值
+		String teName = request.getParameter("TeName");
+		String cardId = request.getParameter("CardId");
+		String sex = request.getParameter("Sex");
+		String age = request.getParameter("Age");
+		String tel = request.getParameter("TeTel");
+		String email = request.getParameter("Email");
+
+		TeacherInfo teacherInfo = new TeacherInfo(teName, cardId, sex, age, tel, email);
+
+		int i = this.userService.teacherUpdate(teacherInfo);
+		if (i > 0) {
+			this.find(request, response);
+		}
+	}
+
+	private void findsTeacher(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// 编码
+		request.setCharacterEncoding("UTF-8");
+		// 获取参数的值
+		String cardId = request.getParameter("cardId");
+
+		UserService userservice = new UserServiceImpl();
+		List<TeacherInfo> teacherInfo = userservice.findTeId(cardId);
+
+		request.setAttribute("teacherInfo", teacherInfo);
+		request.getRequestDispatcher("updateTeInfo.jsp").forward(request, response);
+	}
+
+	private void findTeacher(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// 编码
 		request.setCharacterEncoding("UTF-8");
 		// 获取参数的值

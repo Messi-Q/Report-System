@@ -9,6 +9,7 @@ public interface UserService {
 	public int userRegister(UserInfo userinfo);
 	public int teacherRegister(TeacherInfo teacherinfo);
 	public int userUpdate(UserInfo userinfo);
+	public int teacherUpdate(TeacherInfo teacherInfo);
 	public UserInfo userLogin(UserInfo userinfo);
 	public TeacherInfo teacherLogin(TeacherInfo teacherInfo);
 	public boolean userExist(String username);

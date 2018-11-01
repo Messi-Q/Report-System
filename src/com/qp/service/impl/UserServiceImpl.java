@@ -65,4 +65,10 @@ public class UserServiceImpl implements UserService {
 		return list;
 	}
 
+	@Override
+	public int teacherUpdate(TeacherInfo teacherInfo) {
+		// TODO Auto-generated method stub
+		return userdao.teacherUpdate(teacherInfo);
+	}
+
 }

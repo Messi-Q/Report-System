@@ -9,6 +9,7 @@ public interface UserDao {
 	public int userRegister(UserInfo userinfo);
 	public int teacherRegister(TeacherInfo teacherinfo);
 	public int userUpdate(UserInfo userinfo);
+	public int teacherUpdate(TeacherInfo teacherInfo);
 	public boolean userExist(String username);
 	public boolean teacherExist(String username);
 	public UserInfo userLogin(UserInfo userinfo);

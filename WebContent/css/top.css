@@ -22,7 +22,15 @@
 				padding: 0px;
 				position: absolute;
 				top: 10px;
-				left: 60%;
+				left: 20%;
+				color: white;
+			}
+			.time{
+			    margin: 0px;
+				padding: 0px;
+				position: absolute;
+				top: 10px;
+				left: 75%;
 				color: white;
 			}
 			.back{
