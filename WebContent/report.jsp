@@ -14,6 +14,8 @@
 			<h2 align="center" style="font-family: '黑体';">${reportList.reportTitle }</h2>
 			<h3 align="center" style="font-family: '黑体';">${reportList.reportTime }</h3>
 			<p class="p1" align="center">&nbsp;&nbsp;&nbsp;&nbsp;${reportList.lastReportCont }</p>
+			<p class="p2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;${reportList.thisReportCont }</p>
+			<p class="p3" align="center">&nbsp;&nbsp;&nbsp;&nbsp;${reportList.nextReportCont }</p>
 			<h4 align="center"><a href="userCenter.jsp" class="a1">返回</a></h4>
 		</c:forEach>
 	</div>

@@ -19,7 +19,7 @@
 		<div class="top"></div>
 		<div class="list">周报列表</div>
 		<div class="body">
-
+            ${tmp.message }
 			<table border="1px" cellspacing="0px">
 				<caption>周报信息列表</caption>
 				<tr>

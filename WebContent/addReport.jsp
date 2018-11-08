@@ -12,7 +12,7 @@
 		<div class="top"></div>
 		<div class="list">周报上传</div>
 		<div class="body">
-			<form action="ReportServlet?opt=add&cardId=${cardId }" method="post">
+			<form action="ReportServlet?opt=add&cardId=${cardId }" method="post" enctype="multipart/form-data">
 				<table border="1" cellspacing="0" cellpadding="0">
 					<tr>
 						<td class="td1">标题：<input type="text" class="text"
@@ -21,7 +21,7 @@
 
 					<tr>
 						<td><span class="span1">上周任务：</span> <textarea id="textarea1"
-								name="lastReportCont"></textarea></td>
+								name="lastReportCont" ></textarea></td>
 					</tr>
 
 					<tr>
@@ -33,12 +33,16 @@
 						<td><span class="span1">下周计划：</span> <textarea id="textarea1"
 								name="nextReportCont"></textarea></td>
 					</tr>
+					
+					<tr>
+						<td><input type="file" name="file" size="20" /></td>
+					</tr>
 
 					<tr>
 						<td>
 							<div align="center">
-								<input type="submit" value="上传" /> <input type="file"
-									name="file" />
+								<input type="submit" name="submit" value="上传" /> 
+								<input type="reset" name="reset" value="重置" />
 							</div>
 						</td>
 					</tr>

@@ -27,6 +27,7 @@
 				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
 				<a href="sellList" target="right">按日期查询</a>
 				<a href="queryOrder" target="right">按标题查询</a> 
+				<a href="ListFileServlet" target="right">文件下载</a> 
 			</div>
 		</div>
 		<div class="menu">

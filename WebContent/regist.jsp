@@ -45,7 +45,7 @@
       <a href="stuLogin.jsp">Exist Account</a>
       </div>
       <div align="center">
-      <p class="mt-5 mb-3 text-muted">&copy; 2018-2020</p>
+      <p class="mt-5 mb-3 text-muted">Copyright&copy;2018-2020</p>
       </div>
     </form>
     
