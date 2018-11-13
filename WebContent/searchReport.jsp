@@ -8,46 +8,54 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>周报列表</title>
 <link rel="stylesheet" href="css/report.css" />
-<script type="text/javascript">
-	function delcfm() {
-		if (!confirm("确认要删除？")) {
-			window.event.returnValue = false;
-		}
-	}
-</script>
 <body>
 	<div class="main">
 		<div class="top"></div>
 		<div class="list">周报列表</div>
 		<div class="body">
-			${tmp.message }
+			<table border="1px" cellspacing="0px">
+				<tr>
+					<td class="c1">按标题查询</td>
+					<td class="c2">
+						<form action="ReportServlet?opt=queryMyReport" method="post">
+							<input type="text" name="reportTitle" /> <input type="submit"
+								value="查询" />
+						</form>
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="c1">按上传日期查询</td>
+					<td class="c2">
+						<form action="ReportServlet?opt=queryMyReport" method="post">
+							<input type="date" name="submitTime" /> <input type="submit"
+								value="查询" />
+						</form>
+					</td>
+				</tr>
+			</table>
+
 			<table border="1px" cellspacing="0px">
 				<caption>周报信息列表</caption>
 				<tr>
+					<th>周报Id</th>
 					<th>学号</th>
 					<th>姓名</th>
 					<th>周报标题</th>
 					<th>周报上传时间</th>
 					<th>查看</th>
-					<th>修改</th>
-					<th>删除</th>
 				</tr>
 
-				<c:forEach items="${reportList }" var="reportList">
+				<c:forEach items="${queryList }" var="queryList">
 					<tr>
-						<td>${reportList.cardId }</td>
-						<td>${reportList.stuName }</td>
-						<td>${reportList.reportTitle}</td>
-						<td>${reportList.reportTime}</td>
+						<td>${queryList.reportId }</td>
+						<td>${queryList.cardId }</td>
+						<td>${queryList.stuName }</td>
+						<td>${queryList.reportTitle}</td>
+						<td>${queryList.reportTime}</td>
 						<td><a
-							href="ReportServlet?opt=doSelectOne&reportId=${reportList.reportId }">查看</a>
+							href="ReportServlet?opt=doSelectOne&reportId=${queryList.reportId }">查看</a>
 						</td>
-						<td><a
-							href="ReportServlet?opt=toUpdate&reportId=${reportList.reportId }">修改</a>
-						</td>
-						<td><a
-							href="ReportServlet?opt=delete&reportId=${reportList.reportId }&cardId=${reportList.cardId }"
-							onClick="delcfm()">删除</a></td>
 					</tr>
 				</c:forEach>
 				<tr>

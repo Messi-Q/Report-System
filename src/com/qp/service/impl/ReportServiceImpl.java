@@ -1,6 +1,7 @@
 package com.qp.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.qp.dao.ReportDao;
 import com.qp.dao.impl.ReportDaoImpl;
@@ -43,5 +44,35 @@ public class ReportServiceImpl implements ReportService{
 	public ArrayList<Report> findSelectOne(int reportId) {
 		// TODO Auto-generated method stub
 		return reportDao.findSelectOne(reportId);
+	}
+
+	@Override
+	public List<Report> findReportByCardId(String cardId) {
+		// TODO Auto-generated method stub
+		return reportDao.findReportByCardId(cardId);
+	}
+
+	@Override
+	public List<Report> findReportByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return reportDao.findReportByUserName(userName);
+	}
+
+	@Override
+	public List<Report> findReportBySubmitTime(String submitTime) {
+		// TODO Auto-generated method stub
+		return reportDao.findReportBySubmitTime(submitTime);
+	}
+
+	@Override
+	public ArrayList<Report> findAllReport() {
+		// TODO Auto-generated method stub
+		return reportDao.findAllReport();
+	}
+
+	@Override
+	public List<Report> findReportByTitle(String reportTitle) {
+		// TODO Auto-generated method stub
+		return reportDao.findReportByTitle(reportTitle);
 	}
 }

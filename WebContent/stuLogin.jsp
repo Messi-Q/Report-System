@@ -31,7 +31,7 @@
                     <input type="radio" value="学生登录" checked="checked" name="Login" />学生登录
                     <input type="radio" value="教师登录" name="Login" />教师登录
                     </div>
-				    <label id="card">卡&nbsp;&nbsp;号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				    <label id="card">学&nbsp;&nbsp;号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 					<input type="text" class="input" name="CardId" />
 					</label><br /> 
 					<label id="name">用户名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 

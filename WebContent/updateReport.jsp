@@ -19,11 +19,13 @@
 					<c:forEach items="${reportList }" var="reportList">
 					    <tr>
 							<td class="td1">学 &nbsp;&nbsp;号：<input type="text" class="text"
-								name="cardId" value="${reportList.cardId }" readonly="readonly" /></td>
+								name="cardId" value="${reportList.cardId }" readonly="readonly" />
+								&nbsp;<font color="red">不可更改</font></td>
 						</tr>
 						<tr>
 							<td class="td1">周报编号：<input type="text" class="text"
-								name="reportId" value="${reportList.reportId }" readonly="readonly" /></td>
+								name="reportId" value="${reportList.reportId }" readonly="readonly" />
+								&nbsp;<font color="red">不可更改</font></td>
 						</tr>
 						<tr>
 							<td class="td1">周报标题：<input type="text" class="text"
@@ -49,6 +51,7 @@
 							<td>
 							    <div align="center">
 								    <input type="submit" value="保存修改" />
+								    <a href="reportList.jsp">返回</a>
 								</div>
 							</td>
 						</tr>

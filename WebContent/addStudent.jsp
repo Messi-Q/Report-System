@@ -12,7 +12,12 @@
 		<div class="top"></div>
 		<div class="list">录入学生信息</div>
 		<div class="body">
-			
+			<form action="AddStudentServlet" method="get">
+				输入学生学号：<input type="text" name="stuCardId" /> <br /> 
+				输入学生姓名：<input type="text" name="stuName" /> <br /> 
+				<input type="button" value="提交" /> 
+				<input type="reset" value="重置" />
+			</form>
 		</div>
 	</div>
 </body>

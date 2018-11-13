@@ -23,10 +23,10 @@
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
 				<a href="addStudent.jsp" target="right">添加学生到实验室</a> 
-				<a href="setDeadline.jsp" target="right">设置截止日期</a>
-				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
-				<a href="sellList" target="right">按日期查询</a>
-				<a href="queryOrder" target="right">按标题查询</a> 
+				<a href="setDeadline.jsp" target="right">设置周报截止日期</a>
+				<a href="ReportServlet?opt=findAllReport" target="right">学生周报信息列表</a>
+				<a href="searchAllReport.jsp" target="right">学生周报查询和导出</a>
+				<a href="ListFileServlet" target="right">资料附件下载</a> 
 			</div>
 		</div>
 		

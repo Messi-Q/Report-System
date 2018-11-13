@@ -83,11 +83,22 @@ tr {
 	height: 25px;
 }
 
+.c1 {
+	text-align: right;
+	font-weight: bold;
+	width: 600px;
+	padding-right: 8px;
+}
+
+.c2 {
+	text-align: left;
+}
+
 a {
 	text-decoration: none;
-	color: black;
+	color: blue;
 }
 
 a:hover {
-	color: crimson;
+	color: blue;
 }

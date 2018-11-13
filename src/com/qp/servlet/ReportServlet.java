@@ -22,6 +22,7 @@ import org.apache.commons.fileupload.ProgressListener;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.qp.util.StringUtil;
 import com.qp.entity.Report;
 import com.qp.service.ReportService;
 import com.qp.service.impl.ReportServiceImpl;
@@ -58,7 +59,61 @@ public class ReportServlet extends HttpServlet {
 			this.upload(request, response);
 		} else if (opt.equals("toUpdate")) {
 			this.toUpdate(request, response);
+		} else if (opt.equals("queryReport")) {
+			this.queryReport(request, response);
+		} else if (opt.equals("findAllReport")) {
+			this.findAllReport(request, response);
+		} else if (opt.equals("queryMyReport")) {
+			this.queryMyReport(request, response);
 		}
+	}
+
+	private void queryMyReport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String reportTitle = request.getParameter("reportTitle");
+		String submitTime = request.getParameter("submitTime");
+
+		ReportService reportService = new ReportServiceImpl();
+		List<Report> queryList = null;
+		if (StringUtil.notNullValue(reportTitle)) {
+			queryList = reportService.findReportByTitle(reportTitle);
+		}
+		if (StringUtil.notNullValue(submitTime)) {
+			queryList = reportService.findReportBySubmitTime(submitTime);
+		}
+		request.setAttribute("queryList", queryList);
+		request.getRequestDispatcher("searchReport.jsp").forward(request, response);
+	}
+
+	private void findAllReport(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		ReportService reportService = new ReportServiceImpl();
+		ArrayList<Report> reportList = reportService.findAllReport();
+		request.setAttribute("reportList", reportList);
+		request.getRequestDispatcher("allReport.jsp").forward(request, response);
+	}
+
+	private void queryReport(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String cardId = request.getParameter("cardId");
+		String userName = request.getParameter("userName");
+		String submitTime = request.getParameter("submitTime");
+
+		ReportService reportService = new ReportServiceImpl();
+		List<Report> queryList = null;
+		if (StringUtil.notNullValue(cardId)) {
+			queryList = reportService.findReportByCardId(cardId);
+		}
+		if (StringUtil.notNullValue(userName)) {
+			queryList = reportService.findReportByUserName(userName);
+		}
+		if (StringUtil.notNullValue(submitTime)) {
+			queryList = reportService.findReportBySubmitTime(submitTime);
+		}
+		request.setAttribute("queryList", queryList);
+		request.getRequestDispatcher("searchAllReport.jsp").forward(request, response);
 	}
 
 	private void toUpdate(HttpServletRequest request, HttpServletResponse response)
@@ -142,7 +197,8 @@ public class ReportServlet extends HttpServlet {
 		List<String> pList = new ArrayList<>();
 		ReportService reportService = new ReportServiceImpl();
 		String cardId = request.getParameter("cardId");
-		
+		String name = request.getParameter("name");
+
 		// 得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
 		String savePath = this.getServletContext().getRealPath("/WEB-INF/upload");
 		File file = new File(savePath);
@@ -195,7 +251,7 @@ public class ReportServlet extends HttpServlet {
 			for (FileItem item : list) {
 				// 如果fileitem中封装的是普通输入项的数据
 				if (item.isFormField()) {
-				//	String name = item.getFieldName();
+					// String name = item.getFieldName();
 					// 解决普通输入项的数据的中文乱码问题
 					String value = item.getString("UTF-8");
 					pList.add(value);
@@ -249,22 +305,20 @@ public class ReportServlet extends HttpServlet {
 			message = "文件上传失败!";
 			e.printStackTrace();
 		}
-		
+
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("message", message);
 		map.put("cardId", cardId);
-		
+
 		String reportTitle = pList.get(0);
 		String lastReportCont = pList.get(1);
 		String thisReportCont = pList.get(2);
 		String nextReportCont = pList.get(3);
-		
-		Report report = new Report(cardId, reportTitle, lastReportCont, thisReportCont, nextReportCont);
-		
+
+		Report report = new Report(cardId, name, reportTitle, lastReportCont, thisReportCont, nextReportCont);
+
 		int i = reportService.addReport(report);
-		System.out.println("reportTitle: " + reportTitle);
-		
-       
+
 		if (i > 0) {
 			request.setAttribute("tmp", map);
 			this.findAll(request, response);

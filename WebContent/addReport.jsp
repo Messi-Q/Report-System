@@ -12,7 +12,7 @@
 		<div class="top"></div>
 		<div class="list">周报上传</div>
 		<div class="body">
-			<form action="ReportServlet?opt=add&cardId=${cardId }" method="post" enctype="multipart/form-data">
+			<form action="ReportServlet?opt=add&cardId=${cardId }&name=${name }" method="post" enctype="multipart/form-data">
 				<table border="1" cellspacing="0" cellpadding="0">
 					<tr>
 						<td class="td1">标题：<input type="text" class="text"

@@ -23,10 +23,8 @@
 			<div class="menu_body">
 				<img src="img/menu_topline.gif" /> 
 				<a href="ReportServlet?opt=upload&cardId=${cardId }" target="right">周报上传</a> 
-				<a href="ReportServlet?opt=findAll&cardId=${cardId }" target="right">周报信息列表</a>
-				<a href="ReportOutServlet?opt=reportOut" target="right">周报导出</a>
-				<a href="sellList" target="right">按日期查询</a>
-				<a href="queryOrder" target="right">按标题查询</a> 
+				<a href="ReportServlet?opt=findAll&cardId=${cardId }&name=${name }" target="right">周报列表</a>
+				<a href="searchReport.jsp" target="right">周报查询</a> 
 				<a href="ListFileServlet" target="right">文件下载</a> 
 			</div>
 		</div>

@@ -3,6 +3,7 @@ package com.qp.entity;
 public class Report {
 	private int reportId;
 	private String cardId;
+	private String stuName;
 	private String reportTitle;
 	private String lastReportCont;
 	private String thisReportCont;
@@ -12,10 +13,31 @@ public class Report {
 	public Report() {
 	}
 
-	public Report(int reportId, String reportTitle, String lastReportCont, String thisReportCont,
+	public Report(int reportId, String stuName, String reportTitle, String lastReportCont, String thisReportCont,
 			String nextReportCont) {
 		super();
 		this.reportId = reportId;
+		this.stuName = stuName;
+		this.reportTitle = reportTitle;
+		this.lastReportCont = lastReportCont;
+		this.thisReportCont = thisReportCont;
+		this.nextReportCont = nextReportCont;
+	}
+	
+	public Report(int reportId, String cardId, String stuName, String reportTitle, String reportTime) {
+		super();
+		this.reportId = reportId;
+		this.cardId = cardId;
+		this.stuName = stuName;
+		this.reportTitle = reportTitle;
+		this.reportTime = reportTime;
+	}
+	
+	public Report(String cardId, String stuName, String reportTitle, String lastReportCont, String thisReportCont,
+			String nextReportCont) {
+		super();
+		this.cardId = cardId;
+		this.stuName = stuName;
 		this.reportTitle = reportTitle;
 		this.lastReportCont = lastReportCont;
 		this.thisReportCont = thisReportCont;
@@ -32,11 +54,20 @@ public class Report {
 		this.nextReportCont = nextReportCont;
 	}
 
-	public Report(int reportId, String cardId, String reportTitle, String lastReportCont, String thisReportCont, String nextReportCont,
+	public Report(int reportId, String cardId, String reportTitle, String reportTime) {
+		super();
+		this.reportId = reportId;
+		this.cardId = cardId;
+		this.reportTitle = reportTitle;
+		this.reportTime = reportTime;
+	}
+	
+	public Report(int reportId, String cardId, String stuName, String reportTitle, String lastReportCont, String thisReportCont, String nextReportCont,
 			String reportTime) {
 		super();
 		this.reportId = reportId;
 		this.cardId = cardId;
+		this.stuName = stuName;
 		this.reportTitle = reportTitle;
 		this.lastReportCont = lastReportCont;
 		this.thisReportCont = thisReportCont;
@@ -58,6 +89,14 @@ public class Report {
 
 	public void setCardId(String cardId) {
 		this.cardId = cardId;
+	}
+	
+	public String getStuName() {
+		return stuName;
+	}
+
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
 	}
 
 	public String getReportTitle() {
