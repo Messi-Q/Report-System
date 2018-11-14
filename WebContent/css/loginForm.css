@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.loginform {
+	padding-bottom: 200px;
+}
+
+.container {
+	margin-top: 100px
+}
+
+.login {
+	text-align: center;
+}
+
+.control-label {
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+.form-control {
+	padding-bottom: 10px;
+}
+
+.btnlogin {
+	margin-top: 10px;
+}
+
+* {
+	font-family: "微软雅黑";
+}
+
+.bottom {
+	position: fixed;
+	text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    background-color: #333;
+    display: block;
+}

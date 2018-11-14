@@ -1,51 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ç®¡ç†å‘˜ç™»å½•</title>
-<script src="js/login.js"></script>
-<script src="js/jquery.min.js"></script>
- <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.1/examples/sign-in/signin.css" rel="stylesheet">
-<link rel="stylesheet" href="css/login.css" />
+<meta charset="utf-8">
+<title>¹ÜÀíÔ±µÇÂ¼</title>
+<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.js"></script>
+<link rel="stylesheet" href="css/loginForm.css" />
 </head>
 <body>
-	<div class="main">
-		<div class="top"></div>
-		<div class="middle">
-			<div class="left">
-				<img src="img/logo1.png" id="img" /> 
-				<span id="email"> 
-					<img src="img/icon-mail2.gif" />&nbsp;å®¢æˆ·æœåŠ¡é‚®ç®±ï¼šmess.qp711@gmail.com
-				</span> 
-				<span id="web"><img src="img/icon-phone.gif" />&nbsp;å®˜æ–¹ç½‘ç«™ï¼šhttps://messi-q.github.io/</span>
-				<a href="#" id="info"><img src="img/icon-demo.gif" />&nbsp;ä½¿ç”¨è¯´æ˜</a>
-				<a href="#" id="kefu"><img src="img/icon-login-seaver.gif" />&nbsp;åœ¨çº¿å®¢æœ</a>
-			</div>
-			<div class="center">
-				<form action="AdminInfoServlet" method="post">
-					<label id="name">ç”¨æˆ·åï¼š&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-					<input type="text" class="input" name="adminName" />
-					</label><br /> 
-					<label id="password">å¯†&nbsp;&nbsp;&nbsp;ç ï¼š&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="password" class="input" name="pwd" />
-					</label><br /> 
-					<button class="btn btn-outline-primary btn-lg" type="submit">ç™»å½•</button> 
-					<button class="btn btn-outline-danger btn-lg" type="reset">å–æ¶ˆ</button>
-					<div>
-					New to us?<a href="regist.jsp">sign up</a> 
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<form action="AdminInfoServlet" class="loginform" method="post">
+				    <span><font color="red">${error }</font></span>
+					<h1 class="login">¹ÜÀíÔ±µÇÂ¼</h1>
+					<div class="form-group">
+						<label class="control-label">¹ÜÀíÔ±ÕËºÅ£º</label> <input
+							class="form-control" type="text" name="adminName"
+							placeholder="ÊäÈëÕËºÅ" />
 					</div>
+
+					<div class="form-group">
+						<label class="control-label">ÃÜÂë£º</label> <input
+							class="form-control" type="password" name="pwd"
+							placeholder="ÊäÈëÃÜÂë" />
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-outline-primary btn-lg btn-block btnlogin">
+							µÇÂ¼</button>
+						<br />
+					</div>
+
 				</form>
-				<label><font color="red">${error }</font></label>
 			</div>
-			<div class="end">
-				<img src="img/login-wel.gif" />
-			</div>
-			<div class="buttom">Copyright&copy;2018-2020</div>
 		</div>
+	</div>
+	<div>
+		<span class="bottom"><font color="white">Copyright&copy;2018-2020</font></span>
 	</div>
 </body>
 </html>
