@@ -12,8 +12,8 @@ public interface UserService {
 	public int teacherUpdate(TeacherInfo teacherInfo);
 	public UserInfo userLogin(UserInfo userinfo);
 	public TeacherInfo teacherLogin(TeacherInfo teacherInfo);
-	public boolean userExist(String username);
-	public boolean teacherExist(String username);
+	public boolean userExist(String card);
+	public boolean teacherExist(String card);
 	/**
 	 * 根据学号详情
 	 * @param typeID

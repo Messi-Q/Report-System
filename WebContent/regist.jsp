@@ -20,29 +20,29 @@
   <body class="middle">
     <form class="form-signin" action="UserRegisterServlet" method="post" id="form">
       <div align="center">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-      <input type="radio" value="Student Regist" checked="checked" name="Regist" />Student Regist
-      <input type="radio" value="Teacher Regist" name="Regist" />Teacher Regist
+      <h1 class="h3 mb-3 font-weight-normal">注  册</h1>
+      <input type="radio" value="学生注册" checked="checked" name="Regist" />学生注册
+      <input type="radio" value="教师注册" name="Regist" />教师注册
       </div>
-      <label for="inputUsername" class="control-label">User name:</label>
-      <input type="text" id="UserName" name ="UserName" class="form-control" placeholder="Username" required autofocus>
-      <label><font color="red">${error }</font></label>
+      <label for="inputUsername" class="control-label">用户姓名:</label>
+      <input type="text" id="UserName" name ="UserName" class="form-control" placeholder="用户姓名" required autofocus>
       
-      <label for="inputEmail" class="control-label">Email address:</label>
-      <input type="email" id="Email" name="Email" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputEmail" class="control-label">邮箱:</label>
+      <input type="email" id="Email" name="Email" class="form-control" placeholder="邮箱" required autofocus>
       
-      <label for="inputCard" class="control-label">CardId:</label>
-      <input type="text" id="Card" name="Card" class="form-control" placeholder="Card" required autofocus>
+      <label for="inputCard" class="control-label">学号/教工号:</label>
+      <input type="text" id="Card" name="Card" class="form-control" placeholder="学号/教工号" required autofocus>
+      <label><font color="red">${error }</font></label><br/>
       
-      <label for="inputPassword" class="control-label">Password:</label>
-      <input type="password" id="UserPwd" name="UserPwd" class="form-control" placeholder="Password" required>
+      <label for="inputPassword" class="control-label">密码:</label>
+      <input type="password" id="UserPwd" name="UserPwd" class="form-control" placeholder="密码" required>
       
-      <label for="inputPassword" class="control-label">Confirm Password:</label>
-      <input type="password" id="IsPwd" name="IsPwd" class="form-control" placeholder="Confirm Password" required>
+      <!--  <label for="inputPassword" class="control-label">确认密码:</label>
+      <input type="password" id="IsPwd" name="IsPwd" class="form-control" placeholder="确认密码" required>-->
       
-      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return checkAll()">Sign up</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return checkAll()">注 册</button>
       <div align="center">
-      <a href="stuLogin.jsp">Exist Account</a>
+      <a href="stuLogin.jsp">已存在账户</a>
       </div>
       <div align="center">
       <p class="mt-5 mb-3 text-muted">Copyright&copy;2018-2020</p>

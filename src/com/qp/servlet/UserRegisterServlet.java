@@ -36,16 +36,14 @@ public class UserRegisterServlet extends HttpServlet {
 		String card = request.getParameter("Card");
 		String regist = request.getParameter("Regist");
 		
-		System.out.println(regist);
-
-		if (regist.equals("Student Regist")) {
+		if (regist.equals("学生注册")) {
 			System.out.println("学生注册");
 			// 封装：将用户输入的值封装成一个实体类对象
 			UserInfo userinfo = new UserInfo(name, pwd, email, card);
 			// 调用业务层
 			UserService userservice = new UserServiceImpl();
 
-			boolean flg = userservice.userExist(userinfo.getStuName());
+			boolean flg = userservice.userExist(userinfo.getCard());
 
 			if (flg) {
 				request.setAttribute("error", "Accunt Existed!");
@@ -56,13 +54,13 @@ public class UserRegisterServlet extends HttpServlet {
 					request.getRequestDispatcher("success.jsp").forward(request, response);
 				}
 			}
-		} else if (regist.equals("Teacher Regist")) {
+		} else if (regist.equals("教师注册")) {
 			System.out.println("教师注册");
 			TeacherInfo teacherinfo = new TeacherInfo(name, pwd, email, card);
 			// 调用业务层
 			UserService userservice = new UserServiceImpl();
 			
-			boolean flg = userservice.teacherExist(teacherinfo.getTeName());
+			boolean flg = userservice.teacherExist(teacherinfo.getCard());
 			
 			if (flg) {
 				request.setAttribute("error", "Accunt Existed!");

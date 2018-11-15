@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean userExist(String username) {
-		return userdao.userExist(username);
+	public boolean userExist(String card) {
+		return userdao.userExist(card);
 	}
 
 	@Override
@@ -40,9 +40,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean teacherExist(String username) {
+	public boolean teacherExist(String card) {
 		// TODO Auto-generated method stub
-		return userdao.teacherExist(username);
+		return userdao.teacherExist(card);
 	}
 
 	@Override

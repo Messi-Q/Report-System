@@ -48,12 +48,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean userExist(String username) {
+	public boolean userExist(String card) {
 		boolean flg = true;
 		Connection conn = DBUtil.getConn();
 		try {
-			String sql = "select StuName from stuinfo where StuName=?";
-			ResultSet rs = DBUtil.executeQuery(conn, sql, username);
+			String sql = "select CardId from stuinfo where CardId=?";
+			ResultSet rs = DBUtil.executeQuery(conn, sql, card);
 			if (rs.next()) {
 				flg = true;
 			} else {
@@ -105,13 +105,13 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean teacherExist(String username) {
+	public boolean teacherExist(String card) {
 		// TODO Auto-generated method stub
 		boolean flg = true;
 		Connection conn = DBUtil.getConn();
 		try {
-			String sql = "select TeName from teinfo where TeName=?";
-			ResultSet rs = DBUtil.executeQuery(conn, sql, username);
+			String sql = "select CardId from teinfo where CardId=?";
+			ResultSet rs = DBUtil.executeQuery(conn, sql, card);
 			if (rs.next()) {
 				flg = true;
 			} else {
